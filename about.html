@@ -1,350 +1,66 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-raw-concrete">
-    <title>가양 셔츠룸 모음 – 정보 | 공식 데이터 기반 분석</title>
-    <meta name="description" content="가양 셔츠룸 모음 상세 정보: 업계 최고 수준의 객관적 데이터와 실제 이용 통계를 기반으로 한 가양 셔츠룸 정보 포털. 2025년 최신 업소 리스트, 등급, 위치, 서비스 평가를 한눈에 확인하세요.">
-    <meta name="keywords" content="가양 셔츠룸, 가양셔츠룸모음, 가양 셔츠룸 정보, 가양 셔츠룸 데이터, 가양 셔츠룸 분석, 가양 셔츠룸 등급, t3b06-gy-shirts-list-2">
-    <link rel="canonical" href="https://t3b06-gy-shirts-list-2.vercel.app/">
-    <meta property="og:title" content="가양 셔츠룸 모음 – 공식 정보 포털">
-    <meta property="og:description" content="가양 셔츠룸에 관한 모든 객관적 정보: 업소별 평가 데이터, 위치 정보, 서비스 스펙을 Fact 기반으로 제공합니다. 가양 셔츠룸 선택의 기준을 제시합니다.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://t3b06-gy-shirts-list-2.vercel.app/">
-    <meta property="og:locale" content="ko_KR">
-    <meta name="robots" content="index, follow">
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    <style>
-        /* Brutalist Avant-Garde Design System — KR Raw Concrete Theme */
-        /* 이전 페이지와 완전히 동일한 CSS 블록 (변경 없음) */
-        :root {
-            --bg-primary: #f5f0e8;
-            --bg-secondary: #e8e0d0;
-            --text-primary: #1a1a1a;
-            --text-secondary: #3a3a3a;
-            --accent: #c0392b;
-            --accent-hover: #a93226;
-            --border: #2c2c2c;
-            --shadow: 4px 4px 0px rgba(0,0,0,0.2);
-            --font-mono: 'Courier New', Courier, monospace;
-            --font-sans: 'Arial', Helvetica, sans-serif;
-            --grid-gap: 1.5rem;
-            --card-pad: 1.25rem;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-sans);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 0 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; height: auto; display: block; }
-        /* 헤더 + 네비게이션 */
-        .site-header {
-            border-bottom: 3px solid var(--border);
-            padding: 1.5rem 0 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .site-title {
-            font-family: var(--font-mono);
-            font-size: 1.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            background: var(--accent);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            display: inline-block;
-            box-shadow: var(--shadow);
-        }
-        .site-title a { color: white; }
-        .nav-toggle {
-            display: none;
-            background: var(--accent);
-            border: 2px solid var(--border);
-            color: white;
-            font-size: 1.5rem;
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: var(--shadow);
-        }
-        .nav-menu {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-        .nav-menu a {
-            display: block;
-            padding: 0.4rem 1rem;
-            border: 2px solid var(--border);
-            background: var(--bg-secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            transition: background 0.15s, transform 0.1s;
-            box-shadow: var(--shadow);
-        }
-        .nav-menu a:hover {
-            background: var(--accent);
-            color: white;
-            transform: translate(-2px, -2px);
-        }
-        /* 정보 페이지 전용 히어로 */
-        .hero-info {
-            background: var(--bg-secondary);
-            border: 3px solid var(--border);
-            padding: 2rem 1.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow);
-        }
-        .hero-info h1 {
-            font-family: var(--font-mono);
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            border-left: 6px solid var(--accent);
-            padding-left: 1rem;
-        }
-        .hero-info p {
-            font-size: 1.05rem;
-            max-width: 720px;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-        .hero-info .badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.2rem 0.8rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            margin-top: 0.75rem;
-        }
-        /* 그리드 시스템 (변경 없음) */
-        .grid-2col, .grid-3col {
-            display: grid;
-            gap: var(--grid-gap);
-            margin-bottom: 2.5rem;
-        }
-        .grid-2col { grid-template-columns: 1fr 1fr; }
-        .grid-3col { grid-template-columns: 1fr 1fr 1fr; }
-        /* 카드 공통 (변경 없음) */
-        .card {
-            background: white;
-            border: 2px solid var(--border);
-            padding: var(--card-pad);
-            box-shadow: var(--shadow);
-            transition: transform 0.1s;
-        }
-        .card:hover { transform: translate(-2px, -2px); }
-        .card h3 {
-            font-family: var(--font-mono);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.3rem;
-            margin-bottom: 0.75rem;
-        }
-        .card .stat {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
-        }
-        .card .stat strong { color: var(--accent); }
-        .card .tag {
-            display: inline-block;
-            background: var(--border);
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.1rem 0.5rem;
-            font-family: var(--font-mono);
-            margin-right: 0.25rem;
-            margin-top: 0.25rem;
-        }
-        /* FAQ (변경 없음) */
-        .faq-list {
-            margin-bottom: 2.5rem;
-        }
-        .faq-item {
-            border-bottom: 2px solid var(--border);
-            padding: 1rem 0;
-        }
-        .faq-item:first-child { border-top: 2px solid var(--border); }
-        .faq-q {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            font-size: 1.05rem;
-            cursor: default;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-q::after {
-            content: '+';
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-        .faq-a {
-            margin-top: 0.4rem;
-            color: var(--text-secondary);
-            padding-left: 0.5rem;
-            border-left: 3px solid var(--accent);
-        }
-        /* 지표/차트 자리 (변경 없음) */
-        .metric-bar {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-        .metric-bar .label {
-            min-width: 100px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        .metric-bar .bar {
-            flex: 1;
-            height: 12px;
-            background: #ddd;
-            border: 1px solid var(--border);
-        }
-        .metric-bar .bar-fill {
-            height: 100%;
-            background: var(--accent);
-            width: 0%;
-        }
-        .metric-bar .value {
-            font-family: var(--font-mono);
-            font-weight: bold;
-            min-width: 40px;
-            text-align: right;
-        }
-        /* 푸터 (변경 없음) */
-        .site-footer {
-            border-top: 3px solid var(--border);
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        .site-footer a { text-decoration: underline; }
-        /* 반응형 (변경 없음) */
-        @media (max-width: 768px) {
-            .grid-2col, .grid-3col { grid-template-columns: 1fr; }
-            .site-header { flex-direction: column; align-items: stretch; gap: 0.75rem; }
-            .nav-toggle { display: block; width: fit-content; }
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: var(--bg-secondary);
-                border: 2px solid var(--border);
-                padding: 0.5rem;
-            }
-            .nav-menu.open { display: flex; }
-            .hero-info h1 { font-size: 1.6rem; }
-            .metric-bar .label { min-width: 70px; font-size: 0.75rem; }
-        }
-        @media (min-width: 769px) {
-            .nav-toggle { display: none !important; }
-            .nav-menu { display: flex !important; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>가양 셔츠룸 정보 – 투명한 선택 가이드</title>
+<meta name="description" content="가양에 위치한 셔츠룸에 대한 상세 정보를 제공합니다. 이용 목적, 인원 규모, 시간대별 체크리스트와 평가 기준을 한 눈에 파악하세요.">
+<meta name="keywords" content="가양, 셔츠룸, 상세 정보, 이용 가이드, 인원 규모, 시간대">
+<link rel="canonical" href="https://gayang-shirt-zone.program-school.online/about.html">
+<meta property="og:title" content="가양 셔츠룸 정보 – 투명한 선택 가이드">
+<meta property="og:description" content="가양에 위치한 셔츠룸에 대한 상세 정보를 제공합니다. 이용 목적, 인원 규모, 시간대별 체크리스트와 평가 기준을 한 눈에 파악하세요.">
+<meta property="og:url" content="https://gayang-shirt-zone.program-school.online/about.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="가양 셔츠룸 정보 – 투명한 선택 가이드">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="site-title"><a href="/">가양 셔츠룸 모음</a></div>
-        <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="메뉴 열기">☰</button>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="/">홈</a></li>
-                <li><a href="/list">리스트</a></li>
-                <li><a href="/info">정보</a></li>
-                <li><a href="/review">후기</a></li>
-                <li><a href="/guide">가이드</a></li>
-                <li><a href="/contact">문의</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="n-body-ciqi">
+<input type="checkbox" id="nav-toggle" hidden>
+<nav class="n-nav-h9lp">
+  <a href="/index.html">홈</a>
+  <a href="/list.html">셔츠룸 비교</a>
+  <a href="/info.html">정보</a>
+  <a href="/contact.html">문의</a>
+</nav>
 
-    <main>
-        <!-- 히어로 영역 – 정보 페이지 고유 -->
-        <section class="hero-info">
-            <h1>가양 셔츠룸 정보</h1>
-            <p>2025년 4월 기준, 가양 지역 셔츠룸 23개소에 대한 객관적·정량적 데이터를 기반으로 한 상세 정보입니다. 업소별 위치, 서비스 스펙, 이용자 평가 지표를 Fact 중심으로 제공합니다.</p>
-            <span class="badge">데이터 업데이트: 2025-04-07</span>
-        </section>
+<header class="r-ico-ztul">
+  <h1>가양 셔츠룸 상세 정보</h1>
+  <p>당신이 찾는 모든 답이 여기 있다. <strong>투명하게, 직설적으로</strong> 제시한다.</p>
+</header>
 
-        <!-- 주요 지표: 가양 셔츠룸 시장 개요 -->
-        <section style="margin-bottom: 2.5rem;">
-            <h2 style="font-family: var(--font-mono); font-size: 1.4rem; text-transform: uppercase; border-bottom: 3px solid var(--border); padding-bottom: 0.3rem; margin-bottom: 1rem;">시장 개요</h2>
-            <div class="grid-3col">
-                <div class="card">
-                    <h3>총 업소</h3>
-                    <p class="stat"><strong>23</strong> 개소</p>
-                    <p class="stat">2025년 1분기 대비 <strong>+2</strong> 개소</p>
-                    <div class="metric-bar">
-                        <span class="label">시장 점유율</span>
-                        <div class="bar"><div class="bar-fill" style="width: 18%;"></div></div>
-                        <span class="value">18%</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>평균 평점</h3>
-                    <p class="stat"><strong>3.8</strong> / 5.0</p>
-                    <p class="stat">최고 점수: <strong>4.6</strong> (2개 업소)</p>
-                    <div class="metric-bar">
-                        <span class="label">만족도 지수</span>
-                        <div class="bar"><div class="bar-fill" style="width: 76%;"></div></div>
-                        <span class="value">76%</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>평균 이용료</h3>
-                    <p class="stat"><strong>12.5만</strong> 원 (기본 1시간)</p>
-                    <p class="stat">최저: 8만원 / 최고: 22만원</p>
-                    <div class="metric-bar">
-                        <span class="label">가격 경쟁력</span>
-                        <div class="bar"><div class="bar-fill" style="width: 62%;"></div></div>
-                        <span class="value">B+</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="r-grid-932v">
+  <div class="r-grid-8h8j">
+    <h2>Ⅰ. 셔츠룸 기본 개요</h2>
+    <p>가양 지역에 분포된 셔츠룸은 위치, 규모, 시설 유형에 따라 크게 3가지 카테고리로 구분된다. 대형 체인형은 넓은 대기실과 최신 탈취 설비를 갖추고 있으며, 중소형 독립 운영자는 지역 특성을 반영해 맞춤형 서비스를 제공한다. 각각의 장점과 단점을 파악하고, 자신의 요구에 맞는 옵션을 선택해야 한다.</p>
+    <p>주요 위치는 가양역 인근, 중앙로와 상동거리에 집중돼 있다. 교통 접근성이 뛰어나며, 주변 카페와 식당이 밀집해 있어 방문 전후의 이동 편의성을 높인다. 각 셔츠룸은 영업 시간, 결제 수단, 예약 방식 등 기본 정보를 홈페이지에 명시하고 있으니, 사전에 확인하고 계획을 세우는 것이 바람직하다.</p>
+  </div>
 
-        <!-- 업소별 상세 정보 (예시 4개) -->
-        <section style="margin-bottom: 2.5rem;">
-            <h2 style="font-family: var(--font-mono); font-size: 1.4rem; text-transform: uppercase; border-bottom: 3px solid var(--border); padding-bottom: 0.3rem; margin-bottom: 1rem;">대표 업소 데이터</h2>
-            <div class="grid-2col">
-                <div class="card">
-                    <h3>더 클래식 가양</h3>
-                    <p class="stat"><strong>등급:</strong> 프리미엄</p>
-                    <p class="stat"><strong>위치:</strong> 가양동 123-7, 2층</p>
-                    <p class="stat"><strong>기본 이용료:</strong> 18만원 (1시간)</p>
-                    <p class="stat"><strong>평점:</strong> 4.5 / 5.0 (89건)</p>
-                    <div class="metric-bar"><span class="label">청결도</span><div class="bar"><div class="bar-fill" style="width: 92%;"></div></div><span class="value">92%</span></div>
+  <div class="r-grid-8h8j">
+    <h2>Ⅱ. 인원·시간대·목적별 체크리스트</h2>
+    <p><strong>소규모(1~2인) 이용</strong>은 개인 정리, 짧은 회의, 혹은 데이트 전 변신에 최적화돼 있다. 이때는 보통 30분~1시간 이내의 타임 슬롯이 제공되며, 소형 탈취 시스템과 거울 배치가 밀집돼 있다. 예약 시 최소 인원 제한과 시간당 요금 확인이 필수다.</p>
+    <p><strong>중대형(3~6인) 그룹</strong>은 팀 빌딩, 촬영, 혹은 파티 전 의상 교체에 적합하다. 이 경우 큰 대기실과 다수의 탈의 공간, 추가 샤워 시설이 필요하므로 대형 체인형을 선호한다. 예약 시 최소 이용 시간과 인원당 추가 요금을 반드시 확인하고, 사전 현장 방문을 권장한다.</p>
+    <p><strong>심야·새벽 이용</strong>은 보안과 조명, 사운드 관리가 핵심이다. 일부 셔츠룸은 24시간 운영하지만, 밤 시간대는 보안 비용이 상승하고, 조명 색상이 제한될 수 있다. 해당 시간대에 예약을 원한다면 사전 상담을 통해 보안 프로토콜과 추가 비용을 명확히 파악하라.</p>
+  </div>
+
+  <div class="r-grid-8h8j">
+    <h2>Ⅲ. 선택 기준 및 평가 포인트</h2>
+    <p>첫 번째 기준은 <strong>공기 질</strong>이다. 최신 탈취 시스템은 미세 입자까지 제거해 피부 자극을 최소화한다. 두 번째는 <strong>대기실·탈의실 구획</strong> 여부. 구획이 명확하면 개인 공간이 보장돼 불편함이 감소한다. 세 번째는 <strong>가격 대비 서비스</strong>다. 기본 이용료 외에 추가 옵션(예: 헤어 드라이, 맞춤형 조명) 비용을 투명하게 제시하는지 확인한다.</p>
+    <p>네 번째는 <strong>예약 시스템</strong>이다. 실시간 예약 확인, 취소 정책, 모바일 결제 지원 여부가 서비스 신뢰도를 좌우한다. 마지막으로 <strong>피드백 채널</strong>을 점검한다. 고객 의견을 실시간으로 반영하고, 불만 사항을 신속히 처리하는 사업자가 장기적으로 신뢰받는다.</p>
+  </div>
+
+  <div class="r-grid-8h8j">
+    <h2>Ⅳ. 자주 묻는 질문 (FAQ)</h2>
+    <p><strong>Q1. 셔츠룸 이용 전 시설 점검은 어떻게 해야 하나요?</strong><br>
+    A1. 방문 전 홈페이지에 게시된 사진과 동영상을 확인하고, 가능하면 현장 사진을 요구한다. 특히 탈취 장비와 조명 색상, 샤워 시설 유무를 체크한다.</p>
+    <p><strong>Q2. 단체 예약 시 최소 이용 시간은 어떻게 되나요?</strong><br>
+    A2. 대부분의 대형 체인형은 최소 2시간 이상을 요구한다. 중소형 사업자는 1시간 단위로 운영하지만, 인원당 추가 요금이 부과될 수 있다.</p>
+    <p><strong>Q3. 심야 이용 시 추가 비용이 발생하나요?</strong><br>
+    A3. 심야(22시~06시) 운영 사업자는 보안료와 조명 비용을 포함하여 20~30% 가량의 프리미엄을 부과한다. 사전 상담을 통해 정확한 금액을 확인하는 것이 안전하다.</p>
+  </div>
+</section>
+
+<footer class="r-ico-ztul">
+  <p>&copy; 2026 가양 셔츠룸 모음. 모든 권리 보유.</p>
+</footer>
 </body>
 </html>
